@@ -1,4 +1,4 @@
-import { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation } from "@aws-amplify/api";
 import { createAlbum as createAlbumMutation } from "../../graphql/mutations";
 import { getAlbum as getAlbumQuery } from "../../graphql/queries";
 import { listAlbums as listAlbumsQuery } from "../../graphql/queries";
@@ -11,11 +11,12 @@ export const albumInfo = {
     },
   },
   actions: {
-    async createAlbum(_, newAlbum) {
+    async createAlbum({ dispatch }, newAlbum) {
       try {
         await API.graphql(
           graphqlOperation(createAlbumMutation, { input: newAlbum })
         );
+        dispatch("getAlbumsList");
       } catch (error) {
         console.error("createalbum", error);
       }
