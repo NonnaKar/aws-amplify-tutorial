@@ -40,4 +40,8 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+amplify-s3-image {
+  --width: 75%;
+}
+</style>
