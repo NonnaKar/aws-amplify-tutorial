@@ -87,16 +87,14 @@ export default {
     },
     async onFileChange(file) {
       if (!file.target || !file.target.files[0]) {
-        console.log("got inside the if condition");
         return;
       }
       try {
-        console.log("inside the try");
-        await this.$store.dispatch("albumInfo/createPhoto", ({
+        await this.$store.dispatch("albumInfo/createPhoto", {
           file: file.target.files[0],
           type: "image/*",
           id: this.id,
-        }));
+        });
         this.getPhotos();
       } catch (error) {
         console.log("create photo error", error);
