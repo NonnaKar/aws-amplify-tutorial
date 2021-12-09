@@ -48,7 +48,9 @@ export const albumInfo = {
       const { file, type: mimeType, id } = data;
       const extension = file.name.substr(file.name.lastIndexOf(".") + 1);
       const photoId = uuid();
+      console.log("this is photoId:", photoId);
       const key = `images/${photoId}.${extension}`;
+      console.log("this is key:", key);
       const inputData = {
         id: photoId,
         photoAlbumId: id,
@@ -73,7 +75,7 @@ export const albumInfo = {
         );
         return Promise.resolve("success");
       } catch (error) {
-        console.log("create photo error", error);
+        console.log("createPhotoError", error);
         return Promise.reject(error);
       }
     },
