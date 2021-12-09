@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "AmplifyPicbookApi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authamplifypicbook4c41fb6b",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
